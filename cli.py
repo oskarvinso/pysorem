@@ -12,7 +12,7 @@ host = argu.host
 print (f"intentando conectar con {host}....")
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((host, 1234))
+s.connect((host, 1235))
 
 plt.style.use('fivethirtyeight')
 plt.title (f"Uso de la CPU del computador remoto {host}")
@@ -26,7 +26,8 @@ index = count()
 def AnimoGrafica(i):
     CPU_val = s.recv(20)
     CPU_val = CPU_val.decode("utf-8")
-    os.system("cls")
+    CPU_val = int(float(CPU_val))
+    os.system("clear")
     print(f"El Porcentaje de uso de la CPU es: {CPU_val}%")
     val_x.append(next(index))
     val_y.append(CPU_val)

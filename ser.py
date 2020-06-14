@@ -1,10 +1,8 @@
 import socket
 import psutil
+Ip_serv = input("Introduzca la dirección ip o nombre de este servidor  ")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-NombreServ = socket.gethostname()
-Ip_serv = socket.gethostbyname(NombreServ)
-print (f"Este servidor esta usando esta dirección {Ip_serv}")
-s.bind((socket.gethostname(), 1234))
+s.bind((Ip_serv, 1235))
 s.listen(3)
 print ("Esperando conexión por parte de un cliente.....")
 cli, dir = s.accept()
